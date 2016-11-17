@@ -1,0 +1,31 @@
+/*
+Theme Name: Mandiberg
+Description: Mandiberg CSS
+Author: Lukas Eigler-Harding
+Author URI: http://lukaslukas.com/
+Description: Site for artist/teacher/writer/etc Michael Mandiberg. Design & Build by Lukas Eigler-Harding
+Version: 1.0
+*/
+
+
+/**
+ * Table of Contents:
+ *
+
+ */
+
+
+
+
+a{
+	text-transform: uppercase;
+}
+
+
+
+p{
+	font-family: helvetica;
+	color: red;
+}
+
+
