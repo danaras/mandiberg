@@ -9,6 +9,21 @@
 
 get_header(); ?>
 
-	<p>hello, lukas! how are you?</p>
+	
+
+<!-- barba js wrapper for smooth transitions -->
+<div id="barba-wrapper">
+	<div class="barba-container" data-namespace="homepage">
+
+
+	
+
+
+
+	</div>
+</div>
+
+
+
 
 <?php get_footer(); ?>

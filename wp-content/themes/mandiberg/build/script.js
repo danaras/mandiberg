@@ -14,4 +14,33 @@ Version: 1.0
 
  */
 
+// function allows for $ to be used like i would in standard jquery:
+(function($) {
+	
+ console.log("hey")
 
+//barba js function (for smooth page transitions)
+
+var HideShowTransition = Barba.BaseTransition.extend({
+  start: function() {
+    this.newContainerLoading.then(this.finish.bind(this));
+  },
+
+  finish: function() {
+    document.body.scrollTop = 0;
+    this.done();
+  }
+});
+
+
+
+
+
+Barba.Pjax.getTransition = function() {
+  return HideShowTransition;
+};
+
+
+
+	
+})( jQuery )

@@ -15,12 +15,25 @@ Version: 1.0
  */
 
 
-
+*{
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+	letter-spacing: 0.5px;
+}
 
 a{
 	text-transform: uppercase;
+	color: black;
 }
 
+a:hover{
+	text-decoration: none;
+
+}
+
+a:visited{
+	color: black;
+}
 
 
 p{
