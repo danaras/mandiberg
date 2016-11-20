@@ -17,7 +17,8 @@ Version: 1.0
 
 *{
 	font-size: 24px;
-	font-family: 'Roboto', sans-serif;
+	/*font-family: 'Roboto', sans-serif;*/
+	font-family: helvetica;
 	letter-spacing: 0.5px;
 }
 
@@ -37,8 +38,8 @@ a:visited{
 
 
 p{
-	font-family: helvetica;
-	color: red;
+	
+	color: black;
 }
 
 

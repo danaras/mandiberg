@@ -16,8 +16,6 @@ get_header(); ?>
 	<div class="barba-container" data-namespace="homepage">
 
 
-	
-
 
 
 	</div>
