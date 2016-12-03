@@ -30,7 +30,7 @@
 	}
 	add_action( 'wp_enqueue_scripts', 'mandiberg_scripts' );
 
-
+/*load fonts: */
 
 function load_fonts() {
             wp_register_style('et-googleFonts', 'https://fonts.googleapis.com/css?family=Roboto:400,400i');
@@ -39,6 +39,45 @@ function load_fonts() {
     add_action('wp_print_styles', 'load_fonts');
 
 
+/* load menus */
 
+function register_my_menu() {
+  register_nav_menu('header-menu',__( 'Category Menu' ));
+}
+add_action( 'init', 'register_my_menu' );
+
+// offers alternate to the menu walker key: 
+
+class Description_Walker extends Walker {
+
+    // Tell Walker where to inherit it's parent and id values
+    var $db_fields = array(
+        'parent' => 'menu_item_parent', 
+        'id'     => 'db_id' 
+    );
+    // outlines new wrapping (generalized across all categories)
+    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+        
+        if ( $depth === 0 ) {
+        	$output .= sprintf( "\n<a class='category' href='%s'%s>%s</a>\n",
+	            $item->url,
+	            ( $item->object_id === get_the_ID() ) ? ' class="current"' : '',
+	            $item->title
+	        );
+
+        }
+    	
+    	if ( $depth > 0 ) {
+	        $output .= sprintf( "\n<a class='subcategory' href='%s'%s>%s</a>,\n",
+	            $item->url,
+	            ( $item->object_id === get_the_ID() ) ? ' class="current"' : '',
+	            $item->title
+	        );
+    	}
+
+
+    }
+
+}
 
 ?>

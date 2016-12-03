@@ -12,6 +12,10 @@ Version: 1.0
  * Table of Contents:
  *
 
+
+1. basic html elements
+2. menu
+
  */
 
 
@@ -23,12 +27,13 @@ Version: 1.0
 }
 
 a{
-	text-transform: uppercase;
+	
 	color: black;
+	text-decoration: none;
 }
 
 a:hover{
-	text-decoration: none;
+	text-decoration: underline;
 
 }
 
@@ -42,4 +47,15 @@ p{
 	color: black;
 }
 
+
+/* 2. menu */
+
+.category{
+	text-transform: uppercase;
+}
+
+.subcategory{
+	opacity: 0.3;
+
+}
 
