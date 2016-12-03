@@ -55,11 +55,24 @@ class Description_Walker extends Walker {
         'parent' => 'menu_item_parent', 
         'id'     => 'db_id' 
     );
+
+
+    // Configure the start of each level
+	function start_lvl(&$output, $depth = 0, $args = array()) {
+	    $output .= "<span class='subcategories'>";
+	}
+
+	// Configure the end of each level
+	function end_lvl(&$output, $depth = 0, $args = array()) {
+	    $output .= "</span>";
+	}
+
+
     // outlines new wrapping (generalized across all categories)
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
         
         if ( $depth === 0 ) {
-        	$output .= sprintf( "\n<a class='category' href='%s'%s>%s</a>\n",
+        	$output .= sprintf( "\n<a class='category' id='category-".$item->ID."' href='%s'%s>%s</a>\n",
 	            $item->url,
 	            ( $item->object_id === get_the_ID() ) ? ' class="current"' : '',
 	            $item->title
@@ -67,17 +80,33 @@ class Description_Walker extends Walker {
 
         }
     	
+
+    	//if the depth of the menu exceeds the top level (0), generate a new wrapper for each object.
     	if ( $depth > 0 ) {
-	        $output .= sprintf( "\n<a class='subcategory' href='%s'%s>%s</a>,\n",
+	        $output .= sprintf( "\n<a class='subcategory' id='subcategory-".$item->ID."' href='%s'%s>%s</a>,\n",
 	            $item->url,
 	            ( $item->object_id === get_the_ID() ) ? ' class="current"' : '',
 	            $item->title
 	        );
     	}
-
-
     }
+} //end of extends walker function
 
-}
+// add 'active' state filter of current and potential parent(s) and wrapper to produce italics line
+//if category is clicked, reveal subcategories
+
+
+// add_filter('menu' , 'special_nav_class' , 10 , 2);
+
+// function special_nav_class ($classes, $item) {
+//     if (in_array('current-menu-item', $classes) ){
+//         $classes[] = 'active ';
+//     }
+//     return $classes;
+// }
+
+
+
+
 
 ?>
